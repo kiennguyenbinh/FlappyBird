@@ -36,7 +36,10 @@ public:
 	bool Init(WindowsSetting *cs);
 	bool Update();
 	void Render();
+	bool Destroy();
 	void Execute();
+	void CleanBuffer() { SDL_RenderClear(gRender); };
+	void RefereshBuffer() { SDL_RenderPresent(gRender); };
 	static Engine* getInstance();
 	SDL_Window* getWindows() { return gWindows; };
 	SDL_Renderer* getRender() { return gRender; };

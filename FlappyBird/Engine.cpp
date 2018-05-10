@@ -42,12 +42,24 @@ bool Engine::Init(WindowsSetting *cs) {
 	return true;
 }
 
+bool Engine::Destroy() {
+
+	SDL_DestroyRenderer(gRender);
+	gRender = nullptr;
+
+	SDL_DestroyWindow(gWindows);
+	gWindows = nullptr;
+
+	SDL_Quit();
+	return true;
+}
 bool Engine::Update() {
 	return true;
 }
 
 void Engine::Render() {
-
+	CleanBuffer();
+	RefereshBuffer();
 }
 
 void Engine::Execute() {
