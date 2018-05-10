@@ -1,6 +1,6 @@
 #include "Engine.h"
 #include "Define.h"
-
+#include "Timer.h"
 
 Engine::Engine()
 {
@@ -61,9 +61,15 @@ void Engine::Execute() {
 	cs->renderSetting->flag = SDL_RENDERER_ACCELERATED;
 
 	if (Init(cs)) {
+		Timer fps;
 		while (isRunning && !isQuit) {
+			fps.start();
 			Update();
 			Render();
+			if (fps.get_ticks() < 1000 / FPS)
+			{
+				SDL_Delay((1000 / FPS) - fps.get_ticks());
+			}
 		}
 	}
 	else
