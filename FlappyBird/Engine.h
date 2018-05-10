@@ -16,7 +16,7 @@ struct RenderSetting {
 	Uint32 flag;
 };
 struct WindowsSetting {
-	Position pos;
+	Position *pos;
 	int width;
 	int height;
 	Uint32 flag;
@@ -28,14 +28,17 @@ class Engine
 private:
 	SDL_Window *gWindows;
 	SDL_Renderer *gRender;
+	bool isRunning = true;
+	bool isQuit = false;
 public:
 	Engine();
 	virtual ~Engine();
 	bool Init(WindowsSetting *cs);
 	bool Update();
 	void Render();
-	void Pause();
-	void Resume();
 	void Execute();
+	static Engine* getInstance();
+	SDL_Window* getWindows() { return gWindows; };
+	SDL_Renderer* getRender() { return gRender; };
 };
 

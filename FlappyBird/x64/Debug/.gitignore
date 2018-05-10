@@ -3,3 +3,6 @@
 /*.obj
 /*.idb
 /FlappyBird.tlog
+/*.exe
+/*.ilk
+/*.res

@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#include "Define.h"
 
 
 Engine::Engine()
@@ -19,8 +19,8 @@ bool Engine::Init(WindowsSetting *cs) {
 	
 	gWindows = SDL_CreateWindow(
 		cs->title.c_str(),
-		cs->pos.x,
-		cs->pos.y,
+		cs->pos->x,
+		cs->pos->y,
 		cs->width,
 		cs->height,
 		cs->flag
@@ -39,24 +39,44 @@ bool Engine::Init(WindowsSetting *cs) {
 		return false;
 	}
 
-
+	return true;
 }
 
 bool Engine::Update() {
-
+	return true;
 }
 
 void Engine::Render() {
 
 }
 
-void Engine::Pause() {
-
-}
-
-void Engine::Resume() {
-
-}
 void Engine::Execute() {
+	WindowsSetting *cs = new WindowsSetting();
+	cs->pos = new Position(SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED);
+	cs->width = WINDOWS_WIDTH;
+	cs->height = WINDOWS_HEIGH;
+	cs->flag = SDL_WINDOW_SHOWN;
+	cs->title = "Flappy Bird Game v1.0";
+	cs->renderSetting = new RenderSetting();
+	cs->renderSetting->flag = SDL_RENDERER_ACCELERATED;
 
+	if (Init(cs)) {
+		while (isRunning && !isQuit) {
+			Update();
+			Render();
+		}
+	}
+	else
+	{
+		SDL_Log("Engine :: Init Error");
+	}
+}
+
+Engine* Engine::getInstance() {
+	static Engine* instance;
+	if (instance != nullptr) {
+		return instance;
+	}
+	instance = new Engine();
+	return instance;
 }
