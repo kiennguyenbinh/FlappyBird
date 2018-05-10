@@ -41,6 +41,9 @@ public:
 	void CleanBuffer() { SDL_RenderClear(gRender); };
 	void RefereshBuffer() { SDL_RenderPresent(gRender); };
 	static Engine* getInstance();
+	bool getEngineStatus() { return isRunning; };
+	bool getEngineQuit() { return isQuit; };
+	void setEngineQuit(bool quit) { isQuit = quit; };
 	SDL_Window* getWindows() { return gWindows; };
 	SDL_Renderer* getRender() { return gRender; };
 };
