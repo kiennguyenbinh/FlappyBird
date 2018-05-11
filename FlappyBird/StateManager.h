@@ -11,7 +11,6 @@ public:
 	~StateManager();
 	bool Init();
 	bool Update();
-	void Render();
 	bool Destroy();
 	bool PushState(StateBase* _state);
 	bool PopState();

@@ -20,11 +20,7 @@ bool StateManager::Update() {
 	getCurrentState()->Update();
 	return true;
 }
-void StateManager::Render() {
-	if (getCurrentState() != nullptr) {
-		getCurrentState()->Render();
-	}
-}
+
 bool StateManager::Destroy() {
 	//we need pop all state beforce Destroy StateManager
 	while (!m_stateStack.empty()) {

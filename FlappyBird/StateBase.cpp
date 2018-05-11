@@ -25,9 +25,6 @@ bool StateBase::Resume() {
 	isRunning = true;
 	return true;
 }
-void StateBase::Render() {
-
-}
 
 void StateBase::Destroy() {
 	if (isRunning) //We need pause beforce Destroy state.
