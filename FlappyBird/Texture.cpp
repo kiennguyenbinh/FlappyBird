@@ -11,7 +11,7 @@ Texture::~Texture()
 {
 }
 
-bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, bool isFrame = false) {
+bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, bool isFrame) {
 	srcRect.x = _src.x;
 	srcRect.y = _src.y;
 	srcRect.w = _src_width;
@@ -22,18 +22,26 @@ bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des
 	desRect.w = _des_width;
 	desRect.h = _des_height;
 	isFrame = isFrame;
+	return true;
+}
+void Texture::Destroy() {
+	SDL_DestroyTexture(gTexture);
+	gTexture = nullptr;
+
+	SDL_FreeSurface(gSurface);
+	gSurface = nullptr;
 }
 bool Texture::loadTextTure(std::string path) {
 	if (!path.empty()) {
 		gSurface = IMG_Load(path.c_str());
 		if (gSurface == nullptr) {
-			SDL_Log("Texture :: Can't load texture :: %s :: Path: %s", IMG_GetError(), path.c_str());
+			SDL_Log("Texture :: Can't load texture Cause:: gSurface == null :: %s :: Path: %s", IMG_GetError(), path.c_str());
 			return false;
 		}
 		SDL_SetColorKey(gSurface, SDL_TRUE,	SDL_MapRGB(gSurface->format, 0, 0, 0));
 		gTexture = SDL_CreateTextureFromSurface(Engine::getInstance()->getRender(), gSurface);
 		if (gTexture == nullptr) {
-			SDL_Log("Texture :: Can't load texture :: %s :: Path: %s", IMG_GetError(), path.c_str());
+			SDL_Log("Texture :: Can't load texture Cause:: gTexture == null :: %s :: Path: %s", IMG_GetError(), path.c_str());
 			return false;
 		}
 		SDL_FreeSurface(gSurface);
@@ -42,6 +50,7 @@ bool Texture::loadTextTure(std::string path) {
 	}
 	return false;
 }
+
 void Texture::Render() {
 	SDL_RenderCopy(Engine::getInstance()->getRender(),gTexture, &srcRect, &desRect);
 }

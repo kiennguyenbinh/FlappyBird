@@ -13,6 +13,7 @@ public:
 	bool Update();
 	void Render();
 	bool Destroy();
+	bool AddTexture(Texture* _texture);
 	static TextureManager* getInstance();
 };
 

@@ -49,6 +49,8 @@ bool Engine::Init(WindowsSetting *cs) {
 
 bool Engine::Destroy() {
 
+	TextureManager::getInstance()->Destroy();
+
 	SDL_DestroyRenderer(gRender);
 	gRender = nullptr;
 
@@ -64,6 +66,7 @@ bool Engine::Update() {
 
 void Engine::Render() {
 	CleanBuffer();
+	TextureManager::getInstance()->Render();
 	RefereshBuffer();
 }
 

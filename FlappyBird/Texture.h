@@ -13,6 +13,7 @@ public:
 	Texture();
 	~Texture();
 	bool Init(Position _src, int _src_width, int _src_height,  Position _des, int _des_width, int _des_height, bool isFrame = false);
+	void Destroy();
 	void Render();
 	bool loadTextTure(std::string path);
 };
