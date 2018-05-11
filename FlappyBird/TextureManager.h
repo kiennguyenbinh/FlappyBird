@@ -1,9 +1,11 @@
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
+#include <vector>
+#include "Texture.h"
 
 class TextureManager
 {
+private:
+	std::vector<Texture*> m_stackTexture;
 public:
 	TextureManager();
 	~TextureManager();

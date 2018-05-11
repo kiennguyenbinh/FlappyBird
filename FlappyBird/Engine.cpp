@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "Define.h"
 #include "Timer.h"
+#include "TextureManager.h"
 
 Engine::Engine()
 {
@@ -36,6 +37,10 @@ bool Engine::Init(WindowsSetting *cs) {
 	);
 	if (gRender == nullptr) {
 		SDL_Log("Render create error :: Cause %s", SDL_GetError());
+		return false;
+	}
+
+	if (!TextureManager::getInstance()->Init()) {
 		return false;
 	}
 
