@@ -12,7 +12,6 @@ public:
 	virtual bool Pause();
 	virtual bool Resume();
 	virtual bool Update();
-	virtual void Render();
 	virtual void Destroy();
 	virtual std::string getNameState() = 0;
 
