@@ -20,10 +20,10 @@ bool TextureManager::Init() {
 		SDL_Log("TextureManager :: IMG Init failed :: Cause %s :: IMG :: %s", SDL_GetError(), IMG_GetError());
 		return false;
 	}
-	/*Texture* test = new Texture();
+	Texture* test = new Texture();
 	test->Init(Position(0, 0), 288, 512, Position(0, 0), 600, 400);
 	test->loadTextTure("asset/sprites/background-day.png");
-	AddTexture(test);*/
+	AddTexture(test);
 	return true;
 }
 

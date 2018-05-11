@@ -19,6 +19,18 @@
     <Filter Include="Header Files\Core">
       <UniqueIdentifier>{bc30d353-92f8-4d30-8471-220c39d736b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Core\Texture">
+      <UniqueIdentifier>{3fd94935-e750-4b2e-bc02-74bd958e3548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Texture">
+      <UniqueIdentifier>{6f0a6b13-7ab8-414e-9721-1ce11f027372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\State">
+      <UniqueIdentifier>{8c9f3624-7583-4c74-bab0-906d55366b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\State">
+      <UniqueIdentifier>{7d526715-d51c-4641-a926-a313dc75ec1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,11 +42,17 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Source Files\Core\State</Filter>
+    </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\Core</Filter>
+      <Filter>Source Files\Core\Texture</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="StateBase.cpp">
+      <Filter>Source Files\Core\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,11 +68,17 @@
     <ClInclude Include="Define.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\Core</Filter>
+    <ClInclude Include="StateManager.h">
+      <Filter>Header Files\Core\State</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\Core\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="StateBase.h">
+      <Filter>Header Files\Core\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

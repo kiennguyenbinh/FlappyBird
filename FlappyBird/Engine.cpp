@@ -2,7 +2,7 @@
 #include "Define.h"
 #include "Timer.h"
 #include "TextureManager.h"
-
+#include "StateManager.h"
 Engine::Engine()
 {
 }
@@ -44,11 +44,16 @@ bool Engine::Init(WindowsSetting *cs) {
 		return false;
 	}
 
+	if (!StateManager::getInstace()->Init()) {
+		return false;
+	}
+
 	return true;
 }
 
 bool Engine::Destroy() {
 
+	StateManager::getInstace()->Destroy();
 	TextureManager::getInstance()->Destroy();
 
 	SDL_DestroyRenderer(gRender);
@@ -61,6 +66,7 @@ bool Engine::Destroy() {
 	return true;
 }
 bool Engine::Update() {
+	StateManager::getInstace()->Update();
 	return true;
 }
 
