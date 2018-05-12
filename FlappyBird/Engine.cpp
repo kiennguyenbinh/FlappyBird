@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "StateManager.h"
 #include "EventManager.h"
+#include "InputManager.h"
 Engine::Engine()
 {
 }
@@ -53,12 +54,17 @@ bool Engine::Init(WindowsSetting *cs) {
 		return false;
 	}
 
+	if (!InputManager::getInstance()->Init()) {
+		return false;
+	}
+
 	isRunning = true;
 	return true;
 }
 
 bool Engine::Destroy() {
 
+	InputManager::getInstance()->Destroy();
 	EventManager::getInstace()->Destroy();
 	StateManager::getInstace()->Destroy();
 	TextureManager::getInstance()->Destroy();
@@ -73,8 +79,10 @@ bool Engine::Destroy() {
 	return true;
 }
 bool Engine::Update() {
+	printf("Engine::Update().\n");
 	StateManager::getInstace()->Update();
 	EventManager::getInstace()->Update();
+	InputManager::getInstance()->Update();
 	return true;
 }
 

@@ -148,6 +148,7 @@
     <ClCompile Include="AdListener.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateBase.cpp" />
     <ClCompile Include="StateManager.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EventManager.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="StateManager.h" />

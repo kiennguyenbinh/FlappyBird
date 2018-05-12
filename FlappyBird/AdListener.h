@@ -2,7 +2,7 @@
 
 struct Event
 {
-
+	int data;
 };
 
 class AdListener
