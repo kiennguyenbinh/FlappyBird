@@ -5,8 +5,8 @@ class StateBase
 	: public AdListener
 {
 private:
-	bool isAlive;
-	bool isRunning;
+	bool isAlive = false;
+	bool isRunning = false;
 public:
 	StateBase();
 	virtual ~StateBase();
@@ -16,7 +16,7 @@ public:
 	virtual bool Update();
 	void OnEvent(Event* _event);
 	virtual void Destroy();
-	virtual std::string getNameState() = 0;
+	/*virtual std::string getNameState() = 0;*/
 
 };
 

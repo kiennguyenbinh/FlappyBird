@@ -59,6 +59,8 @@ bool Engine::Init(WindowsSetting *cs) {
 	}
 
 	isRunning = true;
+
+	StateManager::getInstace()->PushState(new StateBase());
 	return true;
 }
 
@@ -79,7 +81,7 @@ bool Engine::Destroy() {
 	return true;
 }
 bool Engine::Update() {
-	printf("Engine::Update().\n");
+	//printf("Engine::Update().\n");
 	StateManager::getInstace()->Update();
 	EventManager::getInstace()->Update();
 	InputManager::getInstance()->Update();

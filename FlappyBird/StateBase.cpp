@@ -1,6 +1,6 @@
+#include "Engine.h"
 #include "StateBase.h"
 #include "EventManager.h"
-
 
 StateBase::StateBase()
 {
@@ -40,5 +40,18 @@ void StateBase::Destroy() {
 }
 
 void StateBase::OnEvent(Event* _event) {
-	//process Event Here
+	switch(_event->data) {
+	case SDL_SCANCODE_A:
+		SDL_Log("StateBase::OnEvent :: Left");
+		break;
+	case SDL_SCANCODE_D:
+		SDL_Log("StateBase::OnEvent :: Right");
+		break;
+	case SDL_SCANCODE_W:
+		SDL_Log("StateBase::OnEvent :: Up");
+		break;
+	case SDL_SCANCODE_S:
+		SDL_Log("StateBase::OnEvent :: Down");
+		break;
+	}
 }

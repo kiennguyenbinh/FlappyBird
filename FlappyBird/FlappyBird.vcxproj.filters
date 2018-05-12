@@ -67,7 +67,7 @@
       <Filter>Source Files\Core\Event</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +102,7 @@
       <Filter>Header Files\Core\Event</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

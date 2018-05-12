@@ -33,7 +33,8 @@ bool StateManager::PushState(StateBase* _state) {
 	if (_state == nullptr) {
 		return false;
 	}
-	getCurrentState()->Pause();
+	if(getCurrentState() != nullptr)
+		getCurrentState()->Pause();
 	m_stateStack.push_back(_state);
 	getCurrentState()->Resume();
 	return true;

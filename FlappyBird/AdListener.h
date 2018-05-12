@@ -3,6 +3,7 @@
 struct Event
 {
 	int data;
+	Event(int _data) { data = _data; };
 };
 
 class AdListener

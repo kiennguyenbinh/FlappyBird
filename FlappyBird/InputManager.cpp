@@ -23,7 +23,7 @@ bool InputManager::Init() {
 	return true;
 }
 bool InputManager::Update() {
-	printf("InputManager::Update().\n");
+	//printf("InputManager::Update().\n");
 	SDL_PumpEvents();
 	SDL_Event event;
 	while (SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT))
@@ -31,18 +31,17 @@ bool InputManager::Update() {
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:
+		case SDL_KEYUP:
 		{
-			//do something
+			EventManager::getInstace()->PushEvent(new Event(event.key.keysym.scancode));
 			break;
 		}
 		case SDL_MOUSEMOTION:
-			//do something
-			break;
 		case SDL_MOUSEBUTTONDOWN:
-			//do something
-			break;
 		case SDL_MOUSEBUTTONUP:
-			//do something
+			break;
+		case SDL_QUIT:
+			Engine::getInstance()->setEngineQuit(true);
 			break;
 		}
 	}
