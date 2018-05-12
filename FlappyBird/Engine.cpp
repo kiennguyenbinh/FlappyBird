@@ -3,6 +3,7 @@
 #include "Timer.h"
 #include "TextureManager.h"
 #include "StateManager.h"
+#include "EventManager.h"
 Engine::Engine()
 {
 }
@@ -48,11 +49,17 @@ bool Engine::Init(WindowsSetting *cs) {
 		return false;
 	}
 
+	if (!EventManager::getInstace()->Init()) {
+		return false;
+	}
+
+	isRunning = true;
 	return true;
 }
 
 bool Engine::Destroy() {
 
+	EventManager::getInstace()->Destroy();
 	StateManager::getInstace()->Destroy();
 	TextureManager::getInstance()->Destroy();
 
@@ -67,6 +74,7 @@ bool Engine::Destroy() {
 }
 bool Engine::Update() {
 	StateManager::getInstace()->Update();
+	EventManager::getInstace()->Update();
 	return true;
 }
 

@@ -1,4 +1,10 @@
 #pragma once
+
+struct Event
+{
+
+};
+
 class AdListener
 {
 public:
@@ -6,6 +12,6 @@ public:
 	virtual ~AdListener();
 	virtual bool Init();
 	virtual void Destroy();
-	virtual void OnEvent() = 0;
+	virtual void OnEvent(Event* _event) = 0;
 };
 

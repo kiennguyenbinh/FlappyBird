@@ -28,7 +28,7 @@ class Engine
 private:
 	SDL_Window *gWindows;
 	SDL_Renderer *gRender;
-	bool isRunning = true;
+	bool isRunning = false;
 	bool isQuit = false;
 public:
 	Engine();

@@ -31,6 +31,12 @@
     <Filter Include="Header Files\Core\State">
       <UniqueIdentifier>{7d526715-d51c-4641-a926-a313dc75ec1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Core\Event">
+      <UniqueIdentifier>{aa912109-28c2-4ec4-a2fc-32fc1233db9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Event">
+      <UniqueIdentifier>{74354dea-659a-4bbc-a140-c210369b54f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="StateBase.cpp">
       <Filter>Source Files\Core\State</Filter>
+    </ClCompile>
+    <ClCompile Include="AdListener.cpp">
+      <Filter>Source Files\Core\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>Source Files\Core\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="StateBase.h">
       <Filter>Header Files\Core\State</Filter>
+    </ClInclude>
+    <ClInclude Include="AdListener.h">
+      <Filter>Header Files\Core\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>Header Files\Core\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
