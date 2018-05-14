@@ -32,7 +32,8 @@ bool InputManager::Update() {
 		{
 		case SDL_KEYDOWN:
 		case SDL_KEYUP:
-		{
+		{ 
+			SDL_Log("event.key.keysym.scancode :: %d ", event.key.keysym.scancode);
 			EventManager::getInstace()->PushEvent(new Event(event.key.keysym.scancode));
 			break;
 		}
