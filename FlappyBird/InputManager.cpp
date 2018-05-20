@@ -23,28 +23,12 @@ bool InputManager::Init() {
 	return true;
 }
 bool InputManager::Update() {
-	//printf("InputManager::Update().\n");
 	SDL_PumpEvents();
 	SDL_Event event;
-	while (SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_FIRSTEVENT, SDL_LASTEVENT))
+	while (SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_KEYDOWN, SDL_KEYUP))
 	{
-		switch (event.type)
-		{
-		case SDL_KEYDOWN:
-		case SDL_KEYUP:
-		{ 
-			SDL_Log("event.key.keysym.scancode :: %d ", event.key.keysym.scancode);
-			EventManager::getInstace()->PushEvent(new Event(event.key.keysym.scancode));
-			break;
-		}
-		case SDL_MOUSEMOTION:
-		case SDL_MOUSEBUTTONDOWN:
-		case SDL_MOUSEBUTTONUP:
-			break;
-		case SDL_QUIT:
-			Engine::getInstance()->setEngineQuit(true);
-			break;
-		}
+		//SDL_Log("event.key.keysym.scancode :: %d ", event.key.keysym.scancode);
+		EventManager::getInstace()->PushEvent(new Event(event.key.keysym.scancode, event.type));
 	}
 	return true;
 }

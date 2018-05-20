@@ -2,6 +2,8 @@
 #include "AdListener.h"
 #include <vector>
 #include <deque>
+#include <algorithm>
+
 class EventManager :
 	public AdListener
 {
@@ -16,9 +18,14 @@ public:
 	void RaiseEvent(Event* _event);
 	void Destroy();
 	virtual void OnEvent(Event* _event) {};
+	bool PrePushEvent(Event* _event);
 	bool PushEvent(Event* _event) {
 		if (_event == nullptr)
 			return false;
+
+		if (!PrePushEvent(_event))
+			return false;
+		
 		m_eventStack.push_back(_event);
 		return true;
 	}

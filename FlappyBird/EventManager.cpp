@@ -16,11 +16,19 @@ bool EventManager::Init() {
 }
 
 bool EventManager::Update() {
-	while (!m_eventStack.empty()) {
-		RaiseEvent(m_eventStack.front());
-		m_eventStack.pop_front();
+	for (std::deque<Event*>::iterator it = m_eventStack.begin(); it!= m_eventStack.end() && !m_eventStack.empty(); it++)
+	{
+		RaiseEvent(*it);
 	}
 	return true;
+}
+bool EventManager::PrePushEvent(Event* _event) {
+	if (_event->state == EventState::EVT_RELEASE) {
+		std::deque<Event*>::iterator it = std::find_if(m_eventStack.begin(), m_eventStack.end(), [=](const Event* m_event) -> bool {return ((_event->data == m_event->data) && (EventState::EVT_PRESS == m_event->state)); });
+		m_eventStack.erase(it);
+		return false;
+	}
+	return std::find_if(m_eventStack.begin(), m_eventStack.end(), [_event](const Event* m_event) -> bool {return ((_event->data == m_event->data) && (_event->state == m_event->state)); }) == m_eventStack.end();
 }
 void EventManager::Destroy() {
 
