@@ -5,6 +5,7 @@
 #include "StateManager.h"
 #include "EventManager.h"
 #include "InputManager.h"
+#include "PlayerState.h"
 Engine::Engine()
 {
 }
@@ -60,7 +61,7 @@ bool Engine::Init(WindowsSetting *cs) {
 
 	isRunning = true;
 
-	StateManager::getInstace()->PushState(new StateBase());
+	StateManager::getInstace()->PushState(new PlayerState());
 	return true;
 }
 

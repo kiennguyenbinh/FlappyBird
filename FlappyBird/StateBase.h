@@ -14,7 +14,7 @@ public:
 	virtual bool Pause();
 	virtual bool Resume();
 	virtual bool Update();
-	void OnEvent(Event* _event);
+	virtual void OnEvent(Event* _event);
 	virtual void Destroy();
 	/*virtual std::string getNameState() = 0;*/
 
