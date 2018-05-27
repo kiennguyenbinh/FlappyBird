@@ -24,6 +24,7 @@ bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des
 	isFrame = isFrame;
 	return true;
 }
+
 void Texture::Destroy() {
 	SDL_DestroyTexture(gTexture);
 	gTexture = nullptr;
@@ -50,7 +51,13 @@ bool Texture::loadTextTure(std::string path) {
 	}
 	return false;
 }
+void Texture::setDPosition(Position _des) {
+	desRect.x = _des.x;
+	desRect.y = _des.y;
+}
 
 void Texture::Render() {
-	SDL_RenderCopy(Engine::getInstance()->getRender(),gTexture, &srcRect, &desRect);
+	if (SDL_RenderCopy(Engine::getInstance()->getRender(), gTexture, &srcRect, &desRect) != 0) {
+		SDL_Log("Error Texture Render");
+	}
 }

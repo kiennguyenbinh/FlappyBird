@@ -16,5 +16,7 @@ public:
 	void Destroy();
 	void Render();
 	bool loadTextTure(std::string path);
+	void setDPosition(Position des);
+	Position getDPosition() { return Position(desRect.x, desRect.y); };
 };
 

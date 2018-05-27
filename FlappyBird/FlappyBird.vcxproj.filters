@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{7c86d738-d567-446b-b5ed-2b014b6dd930}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Object">
+      <UniqueIdentifier>{f0dbb74b-0da9-420e-9907-de1c51e22692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Object">
+      <UniqueIdentifier>{3ec6a00f-292f-4484-af9b-de916b833209}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="PlayerState.cpp">
       <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Source Files\Game\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="PlayerState.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Header Files\Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

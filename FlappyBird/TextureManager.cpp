@@ -38,12 +38,12 @@ bool TextureManager::Update() {
 }
 
 void TextureManager::Render() {
-	Engine::getInstance()->CleanBuffer();
+	//Engine::getInstance()->CleanBuffer();
 	for each (Texture *it in m_stackTexture)
 	{
 		it->Render();
 	}
-	Engine::getInstance()->RefereshBuffer();
+	//Engine::getInstance()->RefereshBuffer();
 }
 bool TextureManager::AddTexture(Texture* _texture) {
 	if (_texture == nullptr) {
