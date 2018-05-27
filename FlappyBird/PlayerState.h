@@ -6,7 +6,7 @@ class PlayerState :
 {
 private:
 	
-	/*Texture* mPipe;
+	/*
 	Texture* mc = nullptr;*/
 
 public:
