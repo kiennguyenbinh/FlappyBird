@@ -11,7 +11,7 @@ Texture::~Texture()
 {
 }
 
-bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, bool isFrame) {
+bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, double _angle, SDL_Point* _center, SDL_RendererFlip _flip, bool isFrame) {
 	srcRect.x = _src.x;
 	srcRect.y = _src.y;
 	srcRect.w = _src_width;
@@ -22,6 +22,11 @@ bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des
 	desRect.w = _des_width;
 	desRect.h = _des_height;
 	isFrame = isFrame;
+
+	angle = _angle;
+	center = _center;
+	flip = _flip;
+	
 	return true;
 }
 
@@ -57,7 +62,7 @@ void Texture::setDPosition(Position _des) {
 }
 
 void Texture::Render() {
-	if (SDL_RenderCopy(Engine::getInstance()->getRender(), gTexture, &srcRect, &desRect) != 0) {
+	if (SDL_RenderCopyEx(Engine::getInstance()->getRender(), gTexture, &srcRect, &desRect, angle, center, flip) != 0) {
 		SDL_Log("Error Texture Render");
 	}
 }

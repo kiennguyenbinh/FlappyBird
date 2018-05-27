@@ -8,11 +8,14 @@ private:
 	SDL_Texture* gTexture;
 	SDL_Rect srcRect;
 	SDL_Rect desRect;
+	double angle;
+	SDL_Point* center;
+	SDL_RendererFlip flip;
 	bool isFrame;
 public:
 	Texture();
 	~Texture();
-	bool Init(Position _src, int _src_width, int _src_height,  Position _des, int _des_width, int _des_height, bool isFrame = false);
+	bool Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE,  bool isFrame = false);
 	void Destroy();
 	void Render();
 	bool loadTextTure(std::string path);
