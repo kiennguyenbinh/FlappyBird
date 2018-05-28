@@ -1,10 +1,13 @@
 #pragma once
 #include "Texture.h"
+
+#define COUNT_BACKGROUND 12
+#define COUNT_PIPE 8
 class BackGround
 {
 private:
-	Texture mBackGround[6];
-	Texture mPipe[8];
+	Texture mBackGround[COUNT_BACKGROUND];
+	Texture mPipe[COUNT_PIPE];
 	int speed = 1;
 	const int SIZE_PIPE_X = 52;
 	const int SIZE_PIPE_Y = 320;
