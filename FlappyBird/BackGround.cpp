@@ -35,19 +35,19 @@ bool BackGround::Resume() {
 	return true;
 }
 bool BackGround::Update() {
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < COUNT_BACKGROUND; i++) {
 		Position tmp_DPosition = mBackGround[i].getDPosition();
 		tmp_DPosition.x -= speed;
 		if (tmp_DPosition.x <= (SIZE_BACKGROUND_X)*(-1)) {
-			tmp_DPosition.x += SIZE_BACKGROUND_X * 5;
+			tmp_DPosition.x += SIZE_BACKGROUND_X * (COUNT_BACKGROUND - 1);
 		}
 		mBackGround[i].setDPosition(tmp_DPosition);
 	}
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < COUNT_PIPE; i++) {
 		Position tmp_DPosition = mPipe[i].getDPosition();
 		tmp_DPosition.x -= speed;
 		if (tmp_DPosition.x <= 0) {
-			int last = (i == 0) ? 7 : (i - 1);
+			int last = (i == 0) ? (COUNT_PIPE - 1) : (i - 1);
 			Position tmp_last = mPipe[last].getDPosition();
 			tmp_DPosition.x = tmp_last.x + SIZE_PIPE_X + rand() % 10 + 50;
 			tmp_DPosition.y = 150 + rand() % 50;
