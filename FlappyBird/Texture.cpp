@@ -11,7 +11,7 @@ Texture::~Texture()
 {
 }
 
-bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, double _angle, SDL_Point* _center, SDL_RendererFlip _flip) {
+bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des, int _des_width, int _des_height, int _Frame, double _angle, SDL_Point* _center, SDL_RendererFlip _flip) {
 	srcRect.x = _src.x;
 	srcRect.y = _src.y;
 	srcRect.w = _src_width;
@@ -22,11 +22,20 @@ bool Texture::Init(Position _src, int _src_width, int _src_height, Position _des
 	desRect.w = _des_width;
 	desRect.h = _des_height;
 
+	mFrame = _Frame;
+	mCurrentFrame = 0;
+
 	angle = _angle;
 	center = _center;
 	flip = _flip;
 	
 	return true;
+}
+void Texture::playAnimation() {
+	if (mFrame) {
+		srcRect.x = mCurrentFrame * srcRect.w;
+		mCurrentFrame = mCurrentFrame == (mFrame - 1) ? 0 : mCurrentFrame + 1;
+	}
 }
 
 void Texture::Destroy() {

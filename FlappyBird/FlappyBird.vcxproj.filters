@@ -87,9 +87,6 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>Source Files\Game\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Source Files\Core\Texture</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -130,9 +127,6 @@
     </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>Header Files\Game\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files\Core\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

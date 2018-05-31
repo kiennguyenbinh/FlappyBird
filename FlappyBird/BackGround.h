@@ -8,7 +8,10 @@ class BackGround
 private:
 	Texture mBackGround[COUNT_BACKGROUND];
 	Texture mPipe[COUNT_PIPE];
+	Texture mc;
 	int speed = 1;
+	const int SIZE_MC_X = 34;
+	const int SIZE_MC_Y = 24;
 	const int SIZE_PIPE_X = 52;
 	const int SIZE_PIPE_Y = 320;
 	const int SIZE_BACKGROUND_X = 288;

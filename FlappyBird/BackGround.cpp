@@ -26,6 +26,12 @@ bool BackGround::Init() {
 		TextureManager::getInstance()->AddTexture(&mPipe[i]);
 		s_start = Position(s_start.x + SIZE_PIPE_X + rand() % 10 + 50,  150 + rand() % 50);
 	}
+
+	s_start = Position(SIZE_BACKGROUND_X, 300);
+	mc.Init(Position(0, 0), SIZE_MC_X, SIZE_MC_Y, s_start, SIZE_MC_X, SIZE_MC_Y, 3);
+	mc.loadTextTure("asset/sprites/sprite.png");
+	TextureManager::getInstance()->AddTexture(&mc);
+
 	return true;
 }
 bool BackGround::Pause() {
@@ -55,6 +61,7 @@ bool BackGround::Update() {
 		SDL_Log(" Pipe i :: %d  - position :: (%d-%d)", i, tmp_DPosition.x, tmp_DPosition.y);
 		mPipe[i].setDPosition(tmp_DPosition);
 	}
+	mc.playAnimation();
 	return true;
 }
 
